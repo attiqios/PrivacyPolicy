@@ -1,107 +1,442 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy</title>
-    <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            background-color: #fff;
-            color: #000;
-            line-height: 1.6;
-            padding: 2rem;
-            max-width: 800px;
-            margin: auto;
-        }
-        h1, h2 {
-            color: #111;
-        }
-        h1 {
-            font-size: 2rem;
-            margin-bottom: 0.2rem;
-        }
-        p, ul {
-            margin-bottom: 1.2rem;
-        }
-        ul {
-            padding-left: 1.2rem;
-        }
-        .date {
-            color: #777;
-            margin-bottom: 2rem;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact — Attiq Iqbal</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #0a0a0d;
+      --surface:   #111116;
+      --border:    #1e1e28;
+      --accent:    #6c63ff;
+      --accent2:   #a78bfa;
+      --text:      #e8e8f0;
+      --muted:     #6b6b80;
+      --input-bg:  #16161e;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ── Background grain + glow ── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 70% 10%, rgba(108,99,255,.13) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 40% at 10% 90%, rgba(167,139,250,.08) 0%, transparent 55%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      opacity: .45;
+      z-index: 0;
+    }
+
+    /* ── Layout ── */
+    .wrapper {
+      position: relative;
+      z-index: 1;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* ── Header ── */
+    header {
+      padding: 2.2rem 0 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      animation: fadeDown .7s ease both;
+    }
+
+    .logo {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 1.25rem;
+      letter-spacing: -.02em;
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .logo span { color: var(--accent); }
+
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: .9rem;
+      font-weight: 500;
+      letter-spacing: .04em;
+      transition: color .2s;
+    }
+    nav a:hover { color: var(--text); }
+
+    /* ── Hero ── */
+    .hero {
+      padding: 7rem 0 5rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+      animation: fadeUp .8s .1s ease both;
+    }
+
+    @media (max-width: 768px) {
+      .hero { grid-template-columns: 1fr; gap: 3rem; padding: 4rem 0 3rem; }
+    }
+
+    .hero-left { }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      font-size: .78rem;
+      font-weight: 500;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--accent2);
+      margin-bottom: 1.4rem;
+    }
+
+    .eyebrow::before {
+      content: '';
+      display: block;
+      width: 22px; height: 1px;
+      background: var(--accent2);
+    }
+
+    h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(2.6rem, 5vw, 4rem);
+      font-weight: 800;
+      line-height: 1.08;
+      letter-spacing: -.03em;
+      color: var(--text);
+      margin-bottom: 1.2rem;
+    }
+
+    h1 em {
+      font-style: normal;
+      color: transparent;
+      -webkit-text-stroke: 1.5px var(--accent2);
+    }
+
+    .subtitle {
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.7;
+      max-width: 360px;
+    }
+
+    /* ── Info cards ── */
+    .info-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 2.8rem;
+    }
+
+    .info-card {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem 1.25rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      text-decoration: none;
+      color: inherit;
+      transition: border-color .25s, transform .25s;
+    }
+
+    .info-card:hover {
+      border-color: var(--accent);
+      transform: translateX(5px);
+    }
+
+    .info-icon {
+      width: 40px; height: 40px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .info-icon svg { width: 18px; height: 18px; fill: #fff; }
+
+    .info-label { font-size: .72rem; color: var(--muted); letter-spacing: .06em; text-transform: uppercase; }
+    .info-value { font-size: .92rem; font-weight: 500; color: var(--text); margin-top: 1px; }
+
+    /* ── Form card ── */
+    .form-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 2.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .form-card::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 200px; height: 200px;
+      background: radial-gradient(circle, rgba(108,99,255,.15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .form-card h2 {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: .4rem;
+      letter-spacing: -.02em;
+    }
+
+    .form-card p {
+      font-size: .88rem;
+      color: var(--muted);
+      margin-bottom: 2rem;
+    }
+
+    .field { margin-bottom: 1.2rem; }
+
+    label {
+      display: block;
+      font-size: .78rem;
+      font-weight: 500;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: .5rem;
+    }
+
+    input, textarea {
+      width: 100%;
+      background: var(--input-bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: .85rem 1rem;
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-size: .92rem;
+      outline: none;
+      transition: border-color .2s, box-shadow .2s;
+      resize: none;
+    }
+
+    input::placeholder, textarea::placeholder { color: var(--muted); opacity: .6; }
+
+    input:focus, textarea:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(108,99,255,.15);
+    }
+
+    textarea { height: 130px; line-height: 1.6; }
+
+    .row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    @media (max-width: 520px) { .row { grid-template-columns: 1fr; } }
+
+    .btn {
+      width: 100%;
+      padding: 1rem;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      border: none;
+      border-radius: 10px;
+      color: #fff;
+      font-family: 'Syne', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: .04em;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      transition: opacity .2s, transform .2s;
+      margin-top: .4rem;
+    }
+
+    .btn:hover { opacity: .9; transform: translateY(-1px); }
+    .btn:active { transform: translateY(0); }
+
+    .btn::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255,255,255,.1), transparent);
+      pointer-events: none;
+    }
+
+    /* ── Success message ── */
+    .success-msg {
+      display: none;
+      align-items: center;
+      gap: .75rem;
+      padding: 1rem 1.2rem;
+      background: rgba(108,99,255,.1);
+      border: 1px solid rgba(108,99,255,.3);
+      border-radius: 10px;
+      color: var(--accent2);
+      font-size: .9rem;
+      font-weight: 500;
+      margin-top: 1rem;
+    }
+
+    .success-msg.show { display: flex; animation: fadeUp .4s ease; }
+
+    /* ── Footer ── */
+    footer {
+      text-align: center;
+      padding: 3rem 0 2.5rem;
+      color: var(--muted);
+      font-size: .82rem;
+      border-top: 1px solid var(--border);
+      margin-top: 4rem;
+    }
+
+    footer span { color: var(--accent2); }
+
+    /* ── Animations ── */
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+  </style>
 </head>
 <body>
 
-    <h1>Privacy Policy</h1>
-    <div class="date">February 17, 2026</div>
+  <div class="wrapper">
 
-    <p>This Privacy Policy applies to the <strong>eSign Docs: AI Signature Maker</strong> mobile application (the "Application"). The Application is provided as an independent service and is intended for use "AS IS".</p>
+    <!-- Header -->
+    <header>
+      <a class="logo" href="#">Attiq<span>.</span></a>
+      <nav>
+        <a href="#">iOS Developer</a>
+      </nav>
+    </header>
 
-    <h2>Information Collection and Use</h2>
+    <!-- Hero + Form -->
+    <section class="hero">
 
-    <p>The Application is designed with privacy in mind.</p>
+      <!-- Left: text + contact info -->
+      <div class="hero-left">
+        <div class="eyebrow">Get in touch</div>
+        <h1>Let's build something <em>great</em> together</h1>
+        <p class="subtitle">Have a project in mind or just want to say hello? Drop me a message — I'd love to hear from you.</p>
 
-    <p><strong>We do not collect, store, sell, rent, or share your personal data.</strong></p>
+        <div class="info-stack">
+          <a class="info-card" href="mailto:attiq.ios.developer@gmail.com">
+            <div class="info-icon">
+              <svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4.236-8 4.882L4 8.236V6h16v2.236z"/></svg>
+            </div>
+            <div>
+              <div class="info-label">Email</div>
+              <div class="info-value">attiq.ios.developer@gmail.com</div>
+            </div>
+          </a>
 
-    <p>The Application does not require account creation and does not collect personally identifiable information such as your name, address, phone number, or email unless you voluntarily contact us.</p>
 
-    <h2>Document & Signature Data</h2>
+        </div>
+      </div>
 
-    <p>All documents, signatures, and related data processed within the Application remain on your device.</p>
+      <!-- Right: form -->
+      <div class="form-card">
+        <h2>Send a message</h2>
+        <p>I'll get back to you as soon as possible.</p>
 
-    <ul>
-        <li>No documents are uploaded to our servers.</li>
-        <li>No signatures are stored on external databases.</li>
-        <li>No document content is accessed by us.</li>
-    </ul>
+        <form id="contactForm">
+          <div class="row">
+            <div class="field">
+              <label for="fname">First name</label>
+              <input type="text" id="fname" name="fname" placeholder="John" required />
+            </div>
+            <div class="field">
+              <label for="lname">Last name</label>
+              <input type="text" id="lname" name="lname" placeholder="Doe" required />
+            </div>
+          </div>
 
-    <p>The Application does not retain copies of your signed documents.</p>
+          <div class="field">
+            <label for="email">Email address</label>
+            <input type="email" id="email" name="email" placeholder="john@example.com" required />
+          </div>
 
-    <h2>AI Processing Disclosure</h2>
+          <div class="field">
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" name="subject" placeholder="What's this about?" required />
+          </div>
 
-    <p>The AI-based signature enhancement features operate locally within the Application.</p>
+          <div class="field">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Tell me about your project…" required></textarea>
+          </div>
 
-    <p><strong>No document data, signature data, or personal information is shared with any artificial intelligence service, external API, or third-party AI provider.</strong></p>
+          <button type="submit" class="btn">Send Message →</button>
 
-    <p>Your content is never used for training AI models.</p>
+          <div class="success-msg" id="successMsg">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Message sent! I'll be in touch soon.
+          </div>
+        </form>
+      </div>
 
-    <h2>Third-Party Services</h2>
+    </section>
 
-    <p>The Application does not share document data or signature data with any third-party service.</p>
+    <footer>
+      Crafted with care by <span>Attiq Iqbal</span> &nbsp;·&nbsp; iOS Developer
+    </footer>
 
-    <p>If analytics, crash reporting, or advertising services are used in the future, they will not have access to your document content or signature information.</p>
+  </div>
 
-    <h2>Data Security</h2>
+  <script>
+    const form = document.getElementById('contactForm');
+    const successMsg = document.getElementById('successMsg');
 
-    <p>All document processing occurs locally on your device. The Application uses standard platform-level security protections provided by iOS to safeguard your information.</p>
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
 
-    <p>While no digital system can guarantee absolute security, reasonable technical and administrative safeguards are implemented.</p>
+      const name    = encodeURIComponent(form.fname.value + ' ' + form.lname.value);
+      const subject = encodeURIComponent(form.subject.value);
+      const body    = encodeURIComponent(
+        'Name: ' + form.fname.value + ' ' + form.lname.value + '\n' +
+        'Email: ' + form.email.value + '\n\n' +
+        form.message.value
+      );
 
-    <h2>Data Retention</h2>
+      const mailtoLink = `mailto:attiq.ios.developer@gmail.com?subject=${subject}&body=${body}`;
+      window.location.href = mailtoLink;
 
-    <p>Since the Application does not collect or store personal data on external servers, we do not retain user data.</p>
+      successMsg.classList.add('show');
+      form.reset();
 
-    <p>If you uninstall the Application, any locally stored data is removed from your device according to your device’s operating system policies.</p>
-
-    <h2>Children’s Privacy</h2>
-
-    <p>The Application is not intended for children under the age of 13. We do not knowingly collect any personal information from children.</p>
-
-    <h2>Changes to This Policy</h2>
-
-    <p>This Privacy Policy may be updated from time to time. Any changes will be reflected on this page with a revised date.</p>
-
-    <h2>Your Consent</h2>
-
-    <p>By using the Application, you agree to this Privacy Policy.</p>
-
-    <h2>Contact Us</h2>
-
-    <p>If you have any questions regarding this Privacy Policy, please contact us at:
-    <a href="mailto:attiq.ios.developer@gmail.com">attiq.ios.developer@gmail.com</a></p>
+      setTimeout(() => successMsg.classList.remove('show'), 5000);
+    });
+  </script>
 
 </body>
 </html>
