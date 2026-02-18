@@ -129,7 +129,7 @@
       font-family: 'Syne', sans-serif;
       font-size: clamp(2.6rem, 5vw, 4rem);
       font-weight: 800;
-      line-height: 1.08;
+      line-height: 1.15;
       letter-spacing: -.03em;
       color: var(--text);
       margin-bottom: 1.2rem;
@@ -350,13 +350,13 @@
         <p class="subtitle">Have a project in mind or just want to say hello? Drop me a message — I'd love to hear from you.</p>
 
         <div class="info-stack">
-          <a class="info-card" href="mailto:attiq.ios.developer@gmail.com">
+          <a class="info-card" href="/cdn-cgi/l/email-protection#650411110c144b0c0a164b01001300090a150017250208040c094b060a08">
             <div class="info-icon">
               <svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4.236-8 4.882L4 8.236V6h16v2.236z"/></svg>
             </div>
             <div>
               <div class="info-label">Email</div>
-              <div class="info-value">attiq.ios.developer@gmail.com</div>
+              <div class="info-value"><span class="__cf_email__" data-cfemail="2a4b5e5e435b04434559044e4f5c4f46455a4f586a4d474b434604494547">[email&#160;protected]</span></div>
             </div>
           </a>
 
@@ -413,7 +413,7 @@
 
   </div>
 
-  <script>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     const form = document.getElementById('contactForm');
     const successMsg = document.getElementById('successMsg');
 
@@ -423,20 +423,8 @@
       const name    = encodeURIComponent(form.fname.value + ' ' + form.lname.value);
       const subject = encodeURIComponent(form.subject.value);
       const body    = encodeURIComponent(
-        'Name: ' + form.fname.value + ' ' + form.lname.value + '\n' +
-        'Email: ' + form.email.value + '\n\n' +
+        'Name: ' + form.fname.value + ' ' + form.lname.value + '\n\n' +
         form.message.value
       );
 
-      const mailtoLink = `mailto:attiq.ios.developer@gmail.com?subject=${subject}&body=${body}`;
-      window.location.href = mailtoLink;
-
-      successMsg.classList.add('show');
-      form.reset();
-
-      setTimeout(() => successMsg.classList.remove('show'), 5000);
-    });
-  </script>
-
-</body>
-</html>
+      const mailtoLink = `mailto:attiq.io
