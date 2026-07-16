@@ -3,90 +3,398 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy</title>
+    <title>Privacy Policy — PeriodTracker</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&family=DM+Serif+Display&display=swap" rel="stylesheet">
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            background-color: #fff;
-            color: #000;
-            line-height: 1.6;
+            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: #FFF8FA;
+            color: #3D2B33;
+            line-height: 1.75;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #F24187 0%, #E8357A 40%, #D42A6E 100%);
+            padding: 4rem 2rem 3.5rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -60%;
+            left: -20%;
+            width: 140%;
+            height: 140%;
+            background: radial-gradient(circle at 30% 70%, rgba(255,255,255,0.08) 0%, transparent 50%);
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.18);
+            color: #fff;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 0.35rem 1rem;
+            border-radius: 100px;
+            margin-bottom: 1.25rem;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-family: 'DM Serif Display', Georgia, serif;
+            color: #fff;
+            font-size: 2.6rem;
+            font-weight: 400;
+            line-height: 1.2;
+            margin-bottom: 0.6rem;
+            position: relative;
+        }
+
+        .hero .date {
+            color: rgba(255,255,255,0.7);
+            font-size: 0.95rem;
+            position: relative;
+        }
+
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem 4rem;
+        }
+
+        .commitment {
+            background: #fff;
+            border: 1px solid #F9D6E3;
+            border-radius: 16px;
             padding: 2rem;
-            max-width: 800px;
-            margin: auto;
+            margin-bottom: 3rem;
+            position: relative;
         }
-        h1, h2 {
-            color: #111;
+
+        .commitment::before {
+            content: '♡';
+            position: absolute;
+            top: -14px;
+            left: 2rem;
+            background: #F24187;
+            color: #fff;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
         }
-        h1 {
-            font-size: 2rem;
-            margin-bottom: 0.2rem;
+
+        .commitment h3 {
+            font-family: 'DM Serif Display', Georgia, serif;
+            font-size: 1.25rem;
+            font-weight: 400;
+            color: #C22060;
+            margin-bottom: 0.6rem;
         }
-        p, ul {
+
+        .commitment p {
+            font-size: 0.95rem;
+            color: #5C4450;
+            margin-bottom: 0;
+        }
+
+        .promise-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-top: 1.25rem;
+        }
+
+        .promise-item {
+            background: #FFF3F7;
+            border-radius: 12px;
+            padding: 1rem 1.15rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.65rem;
+        }
+
+        .promise-icon {
+            width: 22px;
+            height: 22px;
+            background: #F24187;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .promise-icon svg {
+            width: 12px;
+            height: 12px;
+        }
+
+        .promise-item span {
+            font-size: 0.88rem;
+            font-weight: 500;
+            color: #5C2840;
+            line-height: 1.4;
+        }
+
+        section {
+            margin-bottom: 2.5rem;
+        }
+
+        h2 {
+            font-family: 'DM Serif Display', Georgia, serif;
+            font-size: 1.45rem;
+            font-weight: 400;
+            color: #3D2B33;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #FFDFEA;
+        }
+
+        p {
+            font-size: 0.95rem;
+            color: #5C4450;
+            margin-bottom: 1.1rem;
+        }
+
+        ul {
+            padding-left: 0;
+            list-style: none;
             margin-bottom: 1.2rem;
         }
-        ul {
-            padding-left: 1.2rem;
+
+        ul li {
+            font-size: 0.95rem;
+            color: #5C4450;
+            padding: 0.4rem 0 0.4rem 1.6rem;
+            position: relative;
         }
-        .date {
-            color: #777;
-            margin-bottom: 2rem;
+
+        ul li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.85rem;
+            width: 8px;
+            height: 8px;
+            background: #FFAFC9;
+            border-radius: 50%;
+        }
+
+        strong {
+            color: #3D2B33;
+            font-weight: 600;
+        }
+
+        a {
+            color: #F24187;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(242, 65, 135, 0.3);
+            transition: border-color 0.2s;
+        }
+
+        a:hover {
+            border-bottom-color: #F24187;
+        }
+
+        .highlight-box {
+            background: #FFF;
+            border-left: 4px solid #F24187;
+            border-radius: 0 12px 12px 0;
+            padding: 1.25rem 1.5rem;
+            margin: 1.25rem 0;
+            box-shadow: 0 2px 12px rgba(242, 65, 135, 0.06);
+        }
+
+        .highlight-box p {
+            margin-bottom: 0;
+            font-weight: 500;
+            color: #5C2840;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2.5rem 1.5rem;
+            border-top: 1px solid #F9D6E3;
+        }
+
+        footer .logo-text {
+            font-family: 'DM Serif Display', Georgia, serif;
+            font-size: 1.1rem;
+            color: #F24187;
+            margin-bottom: 0.3rem;
+        }
+
+        footer p {
+            font-size: 0.85rem;
+            color: #B89AA8;
+            margin-bottom: 0.3rem;
+        }
+
+        @media (max-width: 600px) {
+            .hero { padding: 3rem 1.5rem 2.5rem; }
+            .hero h1 { font-size: 2rem; }
+            .container { padding: 2rem 1.25rem 3rem; }
+            .promise-grid { grid-template-columns: 1fr; }
+            h2 { font-size: 1.25rem; }
         }
     </style>
 </head>
 <body>
 
-    <h1>Privacy Policy</h1>
-    <div class="date">January 12, 2026</div>
+    <div class="hero">
+        <div class="hero-badge">PeriodTracker</div>
+        <h1>Privacy Policy</h1>
+        <div class="date">Effective: July 16, 2026</div>
+    </div>
 
-    <p>This privacy policy applies to the <strong>Speaker Cleaner: Water Ejector</strong> app (hereby referred to as "Application") for mobile devices that was created by <strong>Attiq Iqbal</strong> (hereby referred to as "Service Provider") as a Free service. This service is intended for use "AS IS".</p>
+    <div class="container">
 
-    <h2>Information Collection and Use</h2>
-    <p>The Application collects basic technical information when you download and use it. This information may include:</p>
-    <ul>
-        <li>The pages/screens you visit within the Application</li>
-        <li>The time and date of your visit</li>
-        <li>The time spent on those screens</li>
-        <li>The operating system and version of your mobile device</li>
-    </ul>
-    <p><strong>The Application does not collect or access your device's location information.</strong></p>
+        <div class="commitment">
+            <h3>Our privacy commitment to you</h3>
+            <p>PeriodTracker was built with one guiding principle: <strong>your most intimate health data belongs to you and only you</strong>. All of your personal cycle data, symptoms, moods, and health logs are stored locally on your device. We never share, sell, or transfer your personal health information to anyone. The app uses minimal third-party services solely for app improvement and to support the free version through ads.</p>
+            <div class="promise-grid">
+                <div class="promise-item">
+                    <div class="promise-icon"><svg fill="none" viewBox="0 0 24 24" stroke="#fff" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></div>
+                    <span>All health data stored on your device</span>
+                </div>
+                <div class="promise-item">
+                    <div class="promise-icon"><svg fill="none" viewBox="0 0 24 24" stroke="#fff" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></div>
+                    <span>No account or sign-up needed</span>
+                </div>
+                <div class="promise-item">
+                    <div class="promise-icon"><svg fill="none" viewBox="0 0 24 24" stroke="#fff" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></div>
+                    <span>Your personal data is never sold or shared</span>
+                </div>
+                <div class="promise-item">
+                    <div class="promise-icon"><svg fill="none" viewBox="0 0 24 24" stroke="#fff" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></div>
+                    <span>Delete all data anytime in one step</span>
+                </div>
+            </div>
+        </div>
 
-    <p>The Service Provider may use collected information to improve the app experience or contact users with important updates and notices. However, no personally identifiable information is collected unless voluntarily provided (e.g., through contact forms or email).</p>
+        <section>
+            <h2>Information we collect</h2>
+            <p><strong>Your personal health data stays on your device.</strong></p>
+            <p>All data you enter — including your name, date of birth, cycle information, symptoms, moods, weight, temperature, sleep, water intake, and daily notes — is stored locally on your device. This personal health data is never uploaded, synced, or transmitted to any server.</p>
+            <p>However, the app does use Firebase Analytics and Firebase Crashlytics, which may automatically collect basic technical information such as:</p>
+            <ul>
+                <li>The screens you visit within the app and time spent on them</li>
+                <li>App crash logs and performance data</li>
+                <li>Device type, operating system version, and app version</li>
+                <li>General usage patterns (e.g., session frequency and duration)</li>
+            </ul>
+            <p>This technical data is anonymized and aggregated. It helps us understand how the app is used and identify crashes so we can improve your experience. <strong>None of your personal health data — cycles, symptoms, moods, logs, or any information you enter — is ever included in this technical data.</strong></p>
+        </section>
 
-    <h2>Third Party Access</h2>
-    <p>Only aggregated, anonymized data is periodically transmitted to external services to help improve the Application. The Service Provider may share your information as described below:</p>
-    <ul>
-        <li>With trusted third-party service providers who support the app’s functionality</li>
-        <li>As required by law, such as to comply with a subpoena or similar legal process</li>
-        <li>When necessary to investigate or prevent potential fraud or security threats</li>
-    </ul>
+        <section>
+            <h2>What data stays on your device</h2>
+            <p>When you use PeriodTracker, the following information is stored exclusively on your iPhone:</p>
+            <ul>
+                <li>Your profile details (name, date of birth, weight, height, marital status, tracking goal)</li>
+                <li>Cycle data (period start and end dates, cycle length, period length, flow intensity, regularity)</li>
+                <li>Daily logs (symptoms, moods, breast symptoms, vaginal discharge, ovulation test results, physical activity, intercourse)</li>
+                <li>Health metrics (basal body temperature, weight, sleep duration and quality, water intake)</li>
+                <li>Personal notes and journal entries</li>
+                <li>Reminder preferences (day and time for period notifications)</li>
+                <li>Onboarding answers (common discomforts, sleep habits, unit preferences)</li>
+            </ul>
+            <div class="highlight-box">
+                <p>None of this data is accessible to us, to any third party, or to anyone other than you.</p>
+            </div>
+        </section>
 
-    <p>This Application uses third-party services that may collect information used to identify you. Please refer to their privacy policies for more information:</p>
-    <ul>
-        <li><a href="https://policies.google.com/privacy" target="_blank">AdMob</a></li>
-        <li><a href="https://firebase.google.com/policies/analytics" target="_blank">Google Analytics for Firebase</a></li>
-        <li><a href="https://firebase.google.com/support/privacy/" target="_blank">Firebase Crashlytics</a></li>
-    </ul>
+        <section>
+            <h2>Third-party services</h2>
+            <p>PeriodTracker uses the following third-party services to improve app quality and support the free version. <strong>None of these services have access to your personal health data</strong> (cycles, symptoms, moods, logs, or any information you enter in the app).</p>
+            <ul>
+                <li><strong><a href="https://firebase.google.com/policies/analytics" target="_blank">Google Analytics for Firebase</a></strong> — Collects anonymized, aggregated usage data such as screen views, session duration, and general engagement metrics. This helps us understand which features are most useful so we can improve the app.</li>
+                <li><strong><a href="https://firebase.google.com/support/privacy/" target="_blank">Firebase Crashlytics</a></strong> — Automatically collects crash reports and performance diagnostics. This helps us identify and fix bugs quickly so the app runs smoothly on your device.</li>
+                <li><strong><a href="https://policies.google.com/privacy" target="_blank">Google AdMob</a></strong> — Serves advertisements within the free version of the app. AdMob may use device identifiers and general usage data to display relevant ads. You can manage your ad preferences through your device's iOS Settings under Privacy &amp; Security → Tracking.</li>
+            </ul>
+            <p>Please refer to the linked privacy policies above for detailed information on how each service handles data. We encourage you to review them.</p>
+            <div class="highlight-box">
+                <p>Important: Your personal health data (period dates, symptoms, moods, cycle logs, weight, temperature, sleep, water intake, and notes) is never shared with any of these services. They only receive anonymous technical and usage data.</p>
+            </div>
+        </section>
 
-    <h2>Opt-Out Rights</h2>
-    <p>You can stop all collection of information by uninstalling the Application. Use the standard uninstall process on your mobile device or via the app store.</p>
+        <section>
+            <h2>Notifications</h2>
+            <p>PeriodTracker can send you local notifications to remind you of your upcoming period. These notifications are scheduled entirely on your device using the iOS local notification system. No notification data is sent to any server — Apple's push notification service is not used.</p>
+            <p>You choose when and whether to receive reminders. Notification permissions can be granted or revoked at any time through iOS Settings.</p>
+        </section>
 
-    <h2>Data Retention Policy</h2>
-    <p>The Service Provider retains user-provided data for as long as the app is being used and for a reasonable time thereafter. If you would like your data deleted, please contact: <a href="mailto:attiq.ios.developer@gmail.com">attiq.ios.developer@gmail.com</a></p>
+        <section>
+            <h2>Data sharing</h2>
+            <p><strong>We do not sell, trade, or share your personal health data with anyone.</strong> Your cycle information, symptoms, moods, and all health logs you enter remain exclusively on your device.</p>
+            <p>Only anonymized, aggregated technical data (such as crash reports and general usage statistics) is shared with our third-party service providers as described above, solely to improve app quality and serve ads. This data cannot be used to identify you personally. There are no data brokers, no partnerships for data exchange, and no transfer of your health information to any external party.</p>
+        </section>
 
-    <h2>Children</h2>
-    <p>This Application is not intended for children under the age of 13. The Service Provider does not knowingly collect personally identifiable information from children under 13. If such information is discovered, it will be deleted promptly. Parents or guardians who become aware of their child’s data being collected should contact the Service Provider.</p>
+        <section>
+            <h2>Opt-out rights</h2>
+            <p>You can stop all data collection by the third-party services by uninstalling the app from your device. While the app is installed, you can also limit ad tracking by going to iOS Settings → Privacy &amp; Security → Tracking and disabling the option for PeriodTracker.</p>
+            <p>To request deletion of any data that may have been collected by Firebase or AdMob, please contact us at the email address below.</p>
+        </section>
 
-    <h2>Security</h2>
-    <p>The Service Provider takes reasonable security measures to protect user information, including physical, electronic, and procedural safeguards.</p>
+        <section>
+            <h2>Data retention and deletion</h2>
+            <p>All personal health data is retained locally on your device for as long as the app is installed. PeriodTracker does not maintain any server-side records of your health information.</p>
+            <p>Anonymized technical data collected by Firebase Analytics and Firebase Crashlytics is retained according to Google's standard data retention policies.</p>
+            <p>To permanently delete all local data, simply uninstall the app from your iPhone. If you would like to request deletion of any data held by our third-party services, please contact: <a href="mailto:attiq.ios.developer@gmail.com">attiq.ios.developer@gmail.com</a></p>
+        </section>
 
-    <h2>Changes</h2>
-    <p>This Privacy Policy may be updated from time to time. You are advised to review this page periodically for any changes. Continued use of the Application implies your acceptance of the updated terms.</p>
+        <section>
+            <h2>Children's privacy</h2>
+            <p>PeriodTracker is not intended for children under the age of 13. We do not knowingly collect personally identifiable information from children under 13. The third-party services used by the app (Firebase Analytics, Firebase Crashlytics, and AdMob) are not directed at children either.</p>
+            <p>If a parent or guardian becomes aware that their child has been using the app, they may contact us and we will take appropriate steps. Parents can also uninstall the app to remove all locally stored data from the device.</p>
+        </section>
 
-    <h2>Your Consent</h2>
-    <p>By using the Application, you consent to the collection and use of information as outlined in this policy.</p>
+        <section>
+            <h2>Security</h2>
+            <p>Your personal health data is protected by the security mechanisms built into iOS itself, including device encryption, passcode protection, and Face ID or Touch ID when enabled on your iPhone. Since your health data is stored locally and never transmitted over a network, it is not exposed to the risks associated with server breaches or cloud storage vulnerabilities.</p>
+            <p>The third-party services we use (Firebase and AdMob) employ their own industry-standard security measures to protect the anonymized technical data they process. Please refer to their respective privacy policies for details.</p>
+        </section>
 
-    <h2>Contact Us</h2>
-    <p>If you have any questions or concerns about this Privacy Policy, contact: <a href="mailto:attiq.ios.developer@gmail.com">attiq.ios.developer@gmail.com</a></p>
+        <section>
+            <h2>Changes to this policy</h2>
+            <p>This Privacy Policy may be updated from time to time. When changes are made, the revised version will be posted on this page with an updated effective date. We encourage you to review this page periodically. If any future update materially changes how your data is handled, we will make it clearly visible within the app. Continued use of the app after changes are posted constitutes acceptance of the updated terms.</p>
+        </section>
+
+        <section>
+            <h2>Your consent</h2>
+            <p>By using PeriodTracker, you consent to the collection and use of information as outlined in this Privacy Policy. Your personal health data remains on your device — the anonymized technical data collected by our third-party services is used solely to improve your experience and support the free version of the app.</p>
+        </section>
+
+        <section>
+            <h2>Contact us</h2>
+            <p>If you have any questions, concerns, or feedback about this Privacy Policy or about PeriodTracker, please reach out to us at:</p>
+            <p><a href="mailto:attiq.ios.developer@gmail.com">attiq.ios.developer@gmail.com</a></p>
+        </section>
+
+    </div>
+
+    <footer>
+        <div class="logo-text">PeriodTracker</div>
+        <p>Your cycle. Your data. Your device. Only yours.</p>
+        <p>&copy; 2026 Attiq Iqbal. All rights reserved.</p>
+    </footer>
 
 </body>
 </html>
